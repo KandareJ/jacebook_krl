@@ -1,0 +1,95 @@
+const eci = '8MBJ4h7DNor7wXsY4TFNyB';
+
+authenticate_token
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/authenticate_token
+params: authToken
+
+add_token
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/add_token
+body:
+  {
+    "authToken": <authToken>,
+    "alias": <alias>
+  }
+
+remove_token
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/remove_token
+body:
+  {
+    "authToken": <authToken>
+  }
+
+add_user
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/add_user
+body:
+  {
+    "alias": <alias>,
+    "hash": <hash>,
+    "salt": <salt>,
+    "photo": <photo>,
+    "name": <name>
+  }
+
+remove_user
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/remove_user
+body:
+  {
+    "alias": <alias>
+  }
+
+get_user
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/get_user
+params: alias
+
+alias_available
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/alias_available
+params: alias
+
+get_feed
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/get_feed
+params: alias
+
+get_story
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/get_user_story
+params: alias
+
+get_following
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/get_following
+params: alias
+
+get_followers
+method: get
+url: http://localhost:8080/sky/cloud/<eci>/jacebook_root/get_followers
+params: alias
+
+add_follow
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/add_follow
+body:
+  {
+    "alias": <alias>,
+    "followAlias": <alias>
+  }
+
+add_post
+method: post
+url: http://localhost:8080/sky/event/<eci>/java/jacebook/add_post
+body:
+  {
+    "post_id": <post_id>,
+    "alias": <alias>,
+    "content": <content>,
+    "timestamp": <timestamp>,
+    "image": <image>,
+    "video": <video>
+  }
